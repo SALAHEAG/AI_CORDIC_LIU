@@ -2,11 +2,11 @@
 
 
 module cordic(A, B, Ci, S, Co,io_oeb);
-`ifdef USE_POWER_PINS
+/*`ifdef USE_POWER_PINS
   	inout vccd1,
   	inout vssd1,
-  `endif
-  output wire [31:0] io_oeb;
+  `endif*/
+    output wire [31:0] io_oeb;
   assign io_oeb = 32'b01000000000011111111111111111111;
 input[9:0] A;
 input[9:0] B;

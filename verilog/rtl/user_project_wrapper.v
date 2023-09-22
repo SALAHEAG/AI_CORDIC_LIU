@@ -28,10 +28,14 @@
  *
  *-------------------------------------------------------------
  */
-
+//user_project_wrapper
 module user_project_wrapper #(
     parameter BITS = 32
-) (
+) 
+
+
+
+(
 `ifdef USE_POWER_PINS
     inout vdda1,	// User area 1 3.3V supply
     inout vdda2,	// User area 2 3.3V supply
@@ -81,27 +85,18 @@ module user_project_wrapper #(
 /*--------------------------------------*/
 /* User project is instantiated  here   */
 /*--------------------------------------*/
+//cordic u1(.A(A),.B(B),.Ci(Ci),.S(S),.Co(Co));
 
-cordic cordic (
-`ifdef USE_POWER_PINS
+cordic u1 (
+/*`ifdef USE_POWER_PINS
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
-`endif
- // Wishbone Slave ports (WB MI A)
-    input wb_clk_i,
-    input wb_rst_i,
-    
-    // IOs
-    input  [33:0] io_in,
-    output [33:0] io_out,
-    output [33:0] io_oeb,
-
-    // IRQ
-    output [2:0] irq
-);
+`endif*/
+ 
 
 
- cordic u1(.A(A),.B(B),.Ci(Ci),.S(S),.Co(Co));
+
+
     // IO Pads
 
     .A(io_in[9:0]),
