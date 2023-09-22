@@ -99,6 +99,18 @@ cordic cordic (
     // IRQ
     output [2:0] irq
 );
+
+
+ cordic u1(.A(A),.B(B),.Ci(Ci),.S(S),.Co(Co));
+    // IO Pads
+
+    .A(io_in[9:0]),
+    .B(io_in[19:10]),
+    .Ci(io_in[31]),
+   
+    .S(io_out[29:20]),
+    .Co(io_out[30]),
+    .io_oeb(io_oeb[31:0])
  /*wire [15:0] Exp;
 wire done;
 wire [15:0]angle;
@@ -117,7 +129,7 @@ wire start;
 	 
 	 .done(done)
     );*/
-   .clk(wb_clk_i),
+  /* .clk(wb_clk_i),
     .reset(wb_rst_i),
 
    cordic u1(.clk(wb_clk_i),.reset(wb_rst_i),.start(start),.angle(angle),.Exp(Exp),.done(done));
@@ -127,7 +139,7 @@ wire start;
     .io_oeb(io_oeb[15:0])
     .Exp(io_out[32:16]),
     .io_oeb(io_oeb[32:16])
-
+*/
 );
 
 endmodule	// user_project_wrapper
